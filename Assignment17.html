@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Job Application Form - Abdul Suboor Khan, First-Year BCAI Student">
+  <title>Job Application - Abdul Suboor Khan</title>
+</head>
+
+<body>
+
+  <header>
+    <h1>Job Application – Front-End Developer</h1>
+    <p>Applicant: Abdul Suboor Khan</p>
+    <p>First-Year BCAI Student | Aspiring Web Developer</p>
+  </header>
+
+  <main>
+    <form action="#" method="post" enctype="multipart/form-data">
+
+      <fieldset>
+        <legend>Personal Details</legend>
+
+        <p>
+          <label for="fn">Full Name:</label>
+          <input type="text" id="fn" name="fullname"
+                 value="Abdul Suboor Khan" required>
+        </p>
+
+        <p>
+          <label for="em">Email:</label>
+          <input type="email" id="em" name="email" required>
+        </p>
+
+        <p>
+          <label for="ph">Phone:</label>
+          <input type="tel" id="ph" name="phone"
+                 pattern="[0-9]{10}" placeholder="10-digit number">
+        </p>
+
+        <p>
+          <label for="dob">Date of Birth:</label>
+          <input type="date" id="dob" name="dob">
+        </p>
+
+        <p>
+          <label for="web">Portfolio URL:</label>
+          <input type="url" id="web" name="website"
+                 placeholder="https://">
+        </p>
+
+        <p>
+          <label for="pw">Create Password:</label>
+          <input type="password" id="pw" name="password"
+                 minlength="8">
+        </p>
+      </fieldset>
+
+      <fieldset>
+        <legend>Job Details</legend>
+
+        <p>
+          <label for="pos">Position:</label>
+          <select id="pos" name="position">
+            <option value="frontend">Front-End Developer Intern</option>
+            <option value="ui">UI Designer Intern</option>
+            <option value="qa">QA Tester Intern</option>
+          </select>
+        </p>
+
+        <p>
+          <label for="join">Earliest Joining Date:</label>
+          <input type="date" id="join" name="join">
+        </p>
+
+        <p>
+          <label for="slot">Interview Slot:</label>
+          <input type="datetime-local" id="slot" name="slot">
+        </p>
+
+        <p>
+          <label for="mo">Preferred Start Month:</label>
+          <input type="month" id="mo" name="month">
+        </p>
+
+        <p>
+          <label for="wk">Preferred Week:</label>
+          <input type="week" id="wk" name="week">
+        </p>
+
+        <p>
+          <label for="tm">Best Call Time:</label>
+          <input type="time" id="tm" name="time">
+        </p>
+
+        <p>
+          <label for="exp">Years of Experience:</label>
+          <input type="number" id="exp" name="exp"
+                 min="0" max="40" value="0">
+        </p>
+
+        <p>
+          <label for="sal">Expected Salary (₹ LPA):</label>
+          <input type="range" id="sal" name="salary"
+                 min="2" max="30" value="6"
+                 oninput="out.value=this.value">
+          <output id="out" for="sal">6</output>
+        </p>
+
+        <p>
+          <label for="col">Favourite Colour:</label>
+          <input type="color" id="col" name="colour"
+                 value="#3366ff">
+        </p>
+
+        <p>
+          <label for="sk">Skills:</label>
+          <input list="skills" id="sk" name="skill">
+          <datalist id="skills">
+            <option value="HTML">
+            <option value="CSS">
+            <option value="Java">
+            <option value="JavaScript">
+            <option value="Git">
+          </datalist>
+        </p>
+
+        <p>
+          <label for="s">Search Company Policy:</label>
+          <input type="search" id="s" name="q">
+        </p>
+      </fieldset>
+
+      <fieldset>
+        <legend>Work Mode</legend>
+
+        <label>
+          <input type="radio" name="mode" value="onsite" checked>
+          On-site
+        </label>
+
+        <label>
+          <input type="radio" name="mode" value="remote">
+          Remote
+        </label>
+
+        <label>
+          <input type="radio" name="mode" value="hybrid">
+          Hybrid
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Technologies Known</legend>
+
+        <label>
+          <input type="checkbox" name="tech" value="html">
+          HTML
+        </label>
+
+        <label>
+          <input type="checkbox" name="tech" value="css">
+          CSS
+        </label>
+
+        <label>
+          <input type="checkbox" name="tech" value="javascript">
+          JavaScript
+        </label>
+
+        <label>
+          <input type="checkbox" name="tech" value="java">
+          Java
+        </label>
+      </fieldset>
+
+      <p>
+        <label for="cv">Upload Résumé (PDF):</label>
+        <input type="file" id="cv" name="resume"
+               accept=".pdf,application/pdf">
+      </p>
+
+      <p>
+        <label for="cover">Cover Letter:</label><br>
+        <textarea id="cover" name="cover"
+                  rows="5" cols="50" maxlength="500"></textarea>
+      </p>
+
+      <input type="hidden" name="source" value="careers-page">
+
+      <p>
+        <label>
+          <input type="checkbox" name="agree" required>
+          I confirm that the information is correct.
+        </label>
+      </p>
+
+      <button type="submit">Apply Now</button>
+      <button type="reset">Reset Form</button>
+      <input type="button" value="Print" onclick="window.print()">
+
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Abdul Suboor Khan | First-Year BCAI Student</p>
+  </footer>
+
+</body>
+</html>
