@@ -1,0 +1,266 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Essential Meta Tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="A beginner-friendly demonstration of CSS selector types by Abdul Suboor Khan.">
+  <meta name="author" content="Abdul Suboor Khan">
+
+  <title>CSS Selector Types | Abdul Suboor Khan</title>
+
+  <style>
+    /* 1. Universal Selector */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 2. Element Selector */
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #eef2f7;
+      color: #222;
+      padding: 25px;
+      line-height: 1.7;
+    }
+
+    header {
+      background: #1d3557;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      border-radius: 10px;
+      margin-bottom: 25px;
+    }
+
+    header h1 {
+      color: white;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      margin-bottom: 0;
+    }
+
+    main {
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin-bottom: 1rem;
+      color: #1d3557;
+    }
+
+    h2,
+    h3 {
+      color: #457b9d;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      margin-bottom: 0.75rem;
+    }
+
+    /* 3. Class Selector */
+    .card {
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .highlight {
+      background: #ffe066;
+      padding: 0 5px;
+      border-radius: 3px;
+    }
+
+    /* 4. ID Selector */
+    #special {
+      border-left: 6px solid #e63946;
+    }
+
+    /* 5. Grouping Selector */
+    h2,
+    h3 {
+      color: #457b9d;
+    }
+
+    /* 6. Descendant Selector */
+    .card a {
+      color: #e63946;
+      font-weight: bold;
+    }
+
+    /* 7. Child Selector */
+    ul > li {
+      margin-left: 25px;
+    }
+
+    /* 8. Adjacent Sibling Selector */
+    h2 + p {
+      font-weight: bold;
+    }
+
+    /* 9. Attribute Selector */
+    a[target="_blank"]::after {
+      content: " ↗";
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      border: 1px solid #999;
+      border-radius: 5px;
+      width: 100%;
+      max-width: 350px;
+      font-size: 15px;
+    }
+
+    /* 10. Pseudo-classes */
+    a:hover {
+      text-decoration: none;
+      background: #ffe066;
+    }
+
+    input:focus {
+      outline: 3px solid #a8dadc;
+    }
+
+    li:nth-child(odd) {
+      color: #1d3557;
+    }
+
+    /* 11. Pseudo-element */
+    .card p::first-line {
+      letter-spacing: 0.5px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 25px;
+      padding: 15px;
+      color: #555;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 12px;
+      }
+
+      header,
+      .card {
+        padding: 16px;
+      }
+
+      header h1 {
+        font-size: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>CSS Selector Playground</h1>
+    <p>Created by Abdul Suboor Khan</p>
+    <p>First-Year BCA Student | Learning HTML &amp; CSS</p>
+  </header>
+
+  <main>
+
+    <!-- Class and Element Selectors -->
+    <section class="card">
+      <h2>Class &amp; Element Selectors</h2>
+
+      <p>
+        This paragraph is bold because of the
+        adjacent sibling selector.
+        <span class="highlight">This text uses a class selector.</span>
+      </p>
+
+      <p>
+        This is a normal paragraph styled using the element selector.
+      </p>
+    </section>
+
+    <!-- ID Selector -->
+    <section class="card" id="special">
+      <h3>ID Selector</h3>
+
+      <p>
+        This section uses the unique ID selector
+        <code>#special</code>, which adds a red left border.
+      </p>
+    </section>
+
+    <!-- Descendant, Child, and Pseudo-class Selectors -->
+    <section class="card">
+      <h3>Descendant, Child &amp; Pseudo-class Selectors</h3>
+
+      <p>
+        The list below demonstrates child and pseudo-class selectors.
+      </p>
+
+      <ul>
+        <li>Odd item styled with <code>:nth-child(odd)</code></li>
+        <li>Even item</li>
+        <li>
+          Odd item with
+          <a href="https://developer.mozilla.org/"
+             target="_blank"
+             rel="noopener noreferrer">
+            MDN Web Docs
+          </a>
+        </li>
+      </ul>
+
+      <p>
+        <label for="demo-input">Test the focus selector:</label>
+      </p>
+
+      <input
+        type="text"
+        id="demo-input"
+        placeholder="Click here to test :focus">
+    </section>
+
+    <!-- Selector Summary -->
+    <section class="card">
+      <h2>CSS Selector Summary</h2>
+
+      <ul>
+        <li><code>*</code> — Universal selector</li>
+        <li><code>p</code> — Element selector</li>
+        <li><code>.card</code> — Class selector</li>
+        <li><code>#special</code> — ID selector</li>
+        <li><code>h2, h3</code> — Grouping selector</li>
+        <li><code>.card a</code> — Descendant selector</li>
+        <li><code>ul &gt; li</code> — Child selector</li>
+        <li><code>h2 + p</code> — Adjacent sibling selector</li>
+        <li><code>[target="_blank"]</code> — Attribute selector</li>
+        <li><code>:hover</code> and <code>:focus</code> — Pseudo-classes</li>
+        <li><code>::first-line</code> — Pseudo-element</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    <hr>
+    <p>
+      <small>
+        &copy; 2026 Abdul Suboor Khan | CSS Selectors Assignment
+      </small>
+    </p>
+  </footer>
+
+</body>
+</html>

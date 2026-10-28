@@ -1,0 +1,331 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Essential Meta Tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="CSS design tokens and custom properties demonstrated by Abdul Suboor Khan.">
+  <meta name="author" content="Abdul Suboor Khan">
+
+  <title>Design Tokens with CSS Variables | Abdul Suboor Khan</title>
+
+  <style>
+    /* ===== DESIGN TOKENS ===== */
+    :root {
+      /* Colours */
+      --color-primary: #3d5af1;
+      --color-primary-dark: #2b3fb5;
+      --color-accent: #ff6b6b;
+      --color-bg: #f5f7ff;
+      --color-surface: #ffffff;
+      --color-text: #1f2430;
+      --color-muted: #6b7280;
+
+      /* Font sizes */
+      --fs-sm: 0.8rem;
+      --fs-base: 1rem;
+      --fs-md: 1.25rem;
+      --fs-lg: 1.563rem;
+      --fs-xl: 1.953rem;
+      --fs-2xl: 2.441rem;
+
+      /* Spacing */
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 1rem;
+      --space-4: 1.5rem;
+      --space-5: 2.5rem;
+
+      /* Borders and shadows */
+      --radius: 10px;
+      --shadow: 0 4px 14px rgba(31, 36, 48, 0.12);
+
+      /* Typography */
+      --font-body: system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+
+    /* ===== DARK THEME ===== */
+    [data-theme="dark"] {
+      --color-bg: #12141c;
+      --color-surface: #1e2230;
+      --color-text: #eef0f7;
+      --color-muted: #b2bbcc;
+      --shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    }
+
+    /* ===== BASE STYLES ===== */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: var(--space-5);
+      font: var(--fs-base)/1.6 var(--font-body);
+      background: var(--color-bg);
+      color: var(--color-text);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    header {
+      margin-bottom: var(--space-4);
+    }
+
+    h1 {
+      font-size: var(--fs-2xl);
+      margin: 0 0 var(--space-2);
+    }
+
+    h2 {
+      font-size: var(--fs-lg);
+      margin-top: 0;
+    }
+
+    p {
+      margin-block: var(--space-2);
+    }
+
+    small {
+      font-size: var(--fs-sm);
+      color: var(--color-muted);
+    }
+
+    /* ===== BUTTONS ===== */
+    .btn {
+      background: var(--color-primary);
+      color: #ffffff;
+      border: 0;
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--radius);
+      font-size: var(--fs-base);
+      font-family: inherit;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn:hover {
+      background: var(--color-primary-dark);
+    }
+
+    .btn:focus-visible {
+      outline: 3px solid var(--color-accent);
+      outline-offset: 3px;
+    }
+
+    .btn--accent {
+      background: var(--color-accent);
+    }
+
+    .btn--accent:hover {
+      background: #e65353;
+    }
+
+    /* ===== CARDS ===== */
+    .card {
+      background: var(--color-surface);
+      padding: var(--space-4);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-block: var(--space-4);
+      transition: background 0.3s;
+    }
+
+    /* ===== COLOUR SWATCHES ===== */
+    .swatches {
+      display: flex;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+    }
+
+    .swatch {
+      width: 100px;
+      min-height: 65px;
+      border-radius: var(--radius);
+      display: grid;
+      place-items: end start;
+      padding: var(--space-2);
+      font-size: var(--fs-sm);
+      color: #ffffff;
+      overflow-wrap: anywhere;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      margin-top: var(--space-5);
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: var(--space-3);
+      }
+
+      h1 {
+        font-size: var(--fs-xl);
+      }
+
+      .card {
+        padding: var(--space-3);
+      }
+
+      .swatch {
+        flex: 1 1 80px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <header>
+      <h1>Design Token Sheet</h1>
+
+      <p>
+        Created by <strong>Abdul Suboor Khan</strong>
+      </p>
+
+      <p>
+        First-Year BCA Student | Learning HTML &amp; CSS
+      </p>
+
+      <button
+        class="btn"
+        type="button"
+        id="theme-toggle"
+        aria-pressed="false">
+        Toggle Dark Theme
+      </button>
+    </header>
+
+    <main>
+
+      <!-- Colours -->
+      <section class="card">
+        <h2>Colour Palette</h2>
+
+        <div class="swatches">
+          <div class="swatch"
+            style="background: var(--color-primary)">
+            Primary
+          </div>
+
+          <div class="swatch"
+            style="background: var(--color-primary-dark)">
+            Dark
+          </div>
+
+          <div class="swatch"
+            style="background: var(--color-accent)">
+            Accent
+          </div>
+
+          <div class="swatch"
+            style="background: var(--color-muted)">
+            Muted
+          </div>
+        </div>
+
+        <p>
+          CSS custom properties allow colours to be changed
+          throughout the website from one central location.
+        </p>
+      </section>
+
+      <!-- Typography -->
+      <section class="card">
+        <h2>Typography Scale</h2>
+
+        <p style="font-size: var(--fs-xl)">
+          Extra Large — --fs-xl
+        </p>
+
+        <p style="font-size: var(--fs-lg)">
+          Large — --fs-lg
+        </p>
+
+        <p style="font-size: var(--fs-md)">
+          Medium — --fs-md
+        </p>
+
+        <p>
+          Base — --fs-base
+        </p>
+
+        <small>
+          Small — --fs-sm
+        </small>
+      </section>
+
+      <!-- Buttons -->
+      <section class="card">
+        <h2>Button Components</h2>
+
+        <button class="btn" type="button">
+          Primary Button
+        </button>
+
+        <button class="btn btn--accent" type="button">
+          Accent Button
+        </button>
+      </section>
+
+      <!-- Spacing -->
+      <section class="card">
+        <h2>Spacing and Layout Tokens</h2>
+
+        <p>Spacing variables keep the layout consistent.</p>
+
+        <ul>
+          <li>--space-1: 0.25rem</li>
+          <li>--space-2: 0.5rem</li>
+          <li>--space-3: 1rem</li>
+          <li>--space-4: 1.5rem</li>
+          <li>--space-5: 2.5rem</li>
+        </ul>
+      </section>
+
+    </main>
+
+    <footer>
+      <hr>
+      <p>
+        <small>
+          &copy; 2026 Abdul Suboor Khan |
+          CSS Design Tokens Assignment
+        </small>
+      </p>
+    </footer>
+
+  </div>
+
+  <script>
+    // Dark theme toggle
+    const themeButton = document.getElementById("theme-toggle");
+
+    themeButton.addEventListener("click", function () {
+      const isDark =
+        document.documentElement.dataset.theme === "dark";
+
+      if (isDark) {
+        document.documentElement.dataset.theme = "";
+        themeButton.textContent = "Toggle Dark Theme";
+        themeButton.setAttribute("aria-pressed", "false");
+      } else {
+        document.documentElement.dataset.theme = "dark";
+        themeButton.textContent = "Toggle Light Theme";
+        themeButton.setAttribute("aria-pressed", "true");
+      }
+    });
+  </script>
+
+</body>
+</html>

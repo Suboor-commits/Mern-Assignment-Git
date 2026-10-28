@@ -1,0 +1,366 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="An annotated CSS Box Model demonstration by Abdul Suboor Khan.">
+  <meta name="author" content="Abdul Suboor Khan">
+  <title>CSS Box Model | Abdul Suboor Khan</title>
+
+  <style>
+    :root {
+      --primary: #1d3557;
+      --margin-color: #f9cb9c;
+      --border-color: #ffe599;
+      --padding-color: #b6d7a8;
+      --content-color: #9fc5e8;
+      --background: #f4f7fb;
+      --text: #202938;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, sans-serif;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 1.5rem;
+      line-height: 1.6;
+      background: var(--background);
+      color: var(--text);
+    }
+
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+    }
+
+    header h1 {
+      margin: 0 0 0.4rem;
+    }
+
+    header p {
+      margin: 0;
+      color: #e3ebf7;
+    }
+
+    h2 {
+      color: var(--primary);
+      margin-top: 2rem;
+    }
+
+    code {
+      background: #e7ecf3;
+      padding: 0.1rem 0.3rem;
+      border-radius: 4px;
+      overflow-wrap: anywhere;
+    }
+
+    .demo {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      align-items: center;
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(29, 53, 87, 0.08);
+      overflow: hidden;
+    }
+
+    /* Actual element being analysed.
+       Content-box means width and height exclude padding and border. */
+    .my-box {
+      box-sizing: content-box;
+      width: 200px;
+      height: 80px;
+      padding: 20px;
+      border: 10px solid var(--primary);
+      margin: 30px;
+      background: #a8dadc;
+      display: grid;
+      place-items: center;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    /* Nested layers represent the box model visually. */
+    .layer {
+      display: grid;
+      place-items: center;
+      position: relative;
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .l-margin {
+      background: var(--margin-color);
+      padding: 30px;
+    }
+
+    .l-border {
+      background: var(--border-color);
+      padding: 10px;
+      border: 2px solid var(--primary);
+    }
+
+    .l-padding {
+      background: var(--padding-color);
+      padding: 20px;
+    }
+
+    .l-content {
+      background: var(--content-color);
+      padding: 15px;
+      min-width: 150px;
+      min-height: 65px;
+      display: grid;
+      place-items: center;
+    }
+
+    .tag {
+      position: absolute;
+      top: 3px;
+      left: 6px;
+      font-size: 0.72rem;
+    }
+
+    .legend {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.7rem;
+      margin-top: 1rem;
+    }
+
+    .legend-item {
+      padding: 0.7rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+    }
+
+    .legend-margin { background: var(--margin-color); }
+    .legend-border { background: var(--border-color); }
+    .legend-padding { background: var(--padding-color); }
+    .legend-content { background: var(--content-color); }
+
+    .table-wrap {
+      overflow-x: auto;
+      background: white;
+      border-radius: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th,
+    td {
+      border: 1px solid #d8deea;
+      padding: 0.8rem;
+      text-align: left;
+    }
+
+    th {
+      background: #e7ecf5;
+      color: var(--primary);
+    }
+
+    .note {
+      background: #fff8e8;
+      border-left: 5px solid #f4a261;
+      padding: 1rem;
+      border-radius: 6px;
+      margin-top: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 2.5rem;
+      padding: 1rem;
+      color: #5d6878;
+      border-top: 1px solid #d8deea;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem;
+      }
+
+      .demo {
+        padding: 0.8rem;
+        gap: 1rem;
+      }
+
+      .my-box {
+        margin: 15px;
+      }
+
+      .layer {
+        max-width: 100%;
+      }
+
+      .l-content {
+        min-width: 120px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>CSS Box Model</h1>
+    <p>Assignment by Abdul Suboor Khan | First-Year BCA Student</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>1. Understanding the Box Model</h2>
+      <p>
+        Every HTML element is represented as a rectangular box.
+        The CSS Box Model consists of four layers:
+        <strong>content, padding, border, and margin.</strong>
+      </p>
+
+      <div class="demo">
+        <div class="my-box">Hello!</div>
+
+        <div class="layer l-margin">
+          <span class="tag">Margin</span>
+          <div class="layer l-border">
+            <span class="tag">Border</span>
+            <div class="layer l-padding">
+              <span class="tag">Padding</span>
+              <div class="layer l-content">
+                Content<br>200 × 80px
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="legend">
+        <div class="legend-item legend-margin">
+          <strong>Margin</strong><br>Space outside the border
+        </div>
+        <div class="legend-item legend-border">
+          <strong>Border</strong><br>Outline around the padding
+        </div>
+        <div class="legend-item legend-padding">
+          <strong>Padding</strong><br>Space around the content
+        </div>
+        <div class="legend-item legend-content">
+          <strong>Content</strong><br>Text, images, or other content
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>2. Box Model Calculation</h2>
+      <p>
+        The original <code>.my-box</code> uses
+        <code>box-sizing: content-box</code>. Its declared width
+        and height apply to the content only.
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Measurement</th>
+              <th>Calculation</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Content width</td>
+              <td>200px</td>
+              <td>200px</td>
+            </tr>
+            <tr>
+              <td>Total width without margin</td>
+              <td>200 + (20 × 2) + (10 × 2)</td>
+              <td><strong>260px</strong></td>
+            </tr>
+            <tr>
+              <td>Total width including margins</td>
+              <td>260 + (30 × 2)</td>
+              <td><strong>320px</strong></td>
+            </tr>
+            <tr>
+              <td>Content height</td>
+              <td>80px</td>
+              <td>80px</td>
+            </tr>
+            <tr>
+              <td>Total height without margin</td>
+              <td>80 + (20 × 2) + (10 × 2)</td>
+              <td><strong>140px</strong></td>
+            </tr>
+            <tr>
+              <td>Total height including margins</td>
+              <td>140 + (30 × 2)</td>
+              <td><strong>200px</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>3. The border-box Model</h2>
+      <p>
+        With <code>box-sizing: border-box</code>, the declared width
+        and height include both padding and border. If the width is
+        200px, padding is 20px on each side, and the border is 10px
+        on each side, the content width becomes:
+      </p>
+
+      <div class="note">
+        <strong>Content width:</strong>
+        200 − (20 × 2) − (10 × 2) = <strong>140px</strong>
+        <p>
+          The total width including margins would be
+          200 + (30 × 2) = <strong>260px</strong>.
+        </p>
+      </div>
+
+      <p>
+        Developers commonly use
+        <code>* { box-sizing: border-box; }</code> to make element
+        sizing easier to manage. In this demonstration, the universal
+        rule is overridden for <code>.my-box</code> so the original
+        content-box calculation remains accurate.
+      </p>
+    </section>
+
+    <section>
+      <h2>4. How to Inspect the Box Model</h2>
+      <ol>
+        <li>Open this page in your browser.</li>
+        <li>Press <strong>F12</strong> to open Developer Tools.</li>
+        <li>Select the <strong>Elements</strong> panel.</li>
+        <li>Click the element with the class <code>my-box</code>.</li>
+        <li>Open the <strong>Computed</strong> panel to inspect its dimensions.</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer>
+    <small>
+      &copy; 2026 Abdul Suboor Khan | BCA CSS Assignment
+    </small>
+  </footer>
+
+</body>
+</html>

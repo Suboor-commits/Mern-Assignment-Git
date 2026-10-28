@@ -1,0 +1,296 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Three CSS card designs by Abdul Suboor Khan, a BCA student.">
+  <meta name="author" content="Abdul Suboor Khan">
+  <title>CSS Card Variants | Abdul Suboor Khan</title>
+
+  <style>
+    :root {
+      --primary: #4361ee;
+      --page-bg: #eef2f8;
+      --text: #252b3a;
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, sans-serif;
+      background: var(--page-bg);
+      color: var(--text);
+      margin: 0;
+      padding: 2rem 1.2rem;
+      line-height: 1.6;
+    }
+
+    header {
+      text-align: center;
+      margin: 0 auto 2.5rem;
+      max-width: 750px;
+    }
+
+    header h1 {
+      color: #1d3557;
+      margin-bottom: 0.4rem;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+    }
+
+    header p {
+      margin: 0.4rem 0;
+      color: #596579;
+    }
+
+    .student {
+      display: inline-block;
+      background: #dfe7ff;
+      color: #253d99;
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-top: 0.5rem;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      max-width: 1100px;
+      margin: 0 auto;
+      align-items: stretch;
+    }
+
+    .card {
+      flex: 1 1 260px;
+      max-width: 330px;
+      min-width: 0;
+      padding: 1.7rem;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    .card h2 {
+      margin: 0 0 0.7rem;
+      font-size: 1.5rem;
+    }
+
+    .card p {
+      margin: 0 0 1.3rem;
+      flex-grow: 1;
+    }
+
+    .card a {
+      display: inline-block;
+      align-self: flex-start;
+      margin-top: auto;
+      padding: 0.55rem 1.1rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .card a:focus-visible {
+      outline: 3px solid #f4a261;
+      outline-offset: 4px;
+    }
+
+    /* Variant 1: soft rounded card */
+    .card--soft {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(31, 45, 80, 0.1);
+    }
+
+    .card--soft a {
+      background: var(--primary);
+      color: #fff;
+      border-radius: 999px;
+    }
+
+    .card--soft a:hover {
+      background: #3048c5;
+    }
+
+    /* Variant 2: gradient with asymmetric corners */
+    .card--gradient {
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      border-radius: 0 40px 0 40px;
+      color: #4a1c24;
+      box-shadow: 0 8px 24px rgba(110, 48, 55, 0.1);
+    }
+
+    .card--gradient a {
+      background: #4a1c24;
+      color: #fff;
+      border-radius: 8px;
+    }
+
+    .card--gradient a:hover {
+      background: #6c2935;
+    }
+
+    /* Variant 3: dark outlined card */
+    .card--outline {
+      background: #1b1b2f;
+      color: #e9e9f5;
+      border: 2px solid #00cfe8;
+      border-radius: 6px;
+    }
+
+    .card--outline a {
+      border: 2px solid #00cfe8;
+      color: #75f0ff;
+      border-radius: 4px;
+    }
+
+    .card--outline a:hover {
+      background: #00cfe8;
+      color: #1b1b2f;
+    }
+
+    .design-note {
+      max-width: 900px;
+      margin: 2.5rem auto 0;
+      padding: 1.3rem 1.5rem;
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 15px rgba(31, 45, 80, 0.06);
+    }
+
+    .design-note h2 {
+      margin-top: 0;
+      color: #1d3557;
+    }
+
+    .design-note ul {
+      padding-left: 1.3rem;
+      margin-bottom: 0;
+    }
+
+    footer {
+      text-align: center;
+      color: #647084;
+      margin-top: 2.5rem;
+      padding: 1rem;
+      border-top: 1px solid #d8deea;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1.3rem 1rem;
+      }
+
+      .cards {
+        gap: 1.2rem;
+      }
+
+      .card {
+        flex-basis: 100%;
+        max-width: 420px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+
+      .card:hover {
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Three CSS Card Variants</h1>
+    <p>Exploring backgrounds, borders, shadows, and border-radius in CSS.</p>
+    <span class="student">
+      Abdul Suboor Khan | First-Year BCA Student
+    </span>
+  </header>
+
+  <main>
+    <section class="cards" aria-label="CSS card design examples">
+
+      <article class="card card--soft">
+        <h2>01. Soft Card</h2>
+        <p>
+          A clean white background, rounded 20px corners, and a subtle
+          shadow create a modern, friendly appearance.
+        </p>
+        <a href="#soft-details">Read more</a>
+      </article>
+
+      <article class="card card--gradient">
+        <h2>02. Gradient Card</h2>
+        <p>
+          A warm gradient and asymmetric corners create a creative design
+          that stands out from traditional rectangular cards.
+        </p>
+        <a href="#gradient-details">Read more</a>
+      </article>
+
+      <article class="card card--outline">
+        <h2>03. Outline Card</h2>
+        <p>
+          A dark background, bright cyan border, and angular corners give
+          this card a bold, technology-inspired look.
+        </p>
+        <a href="#outline-details">Read more</a>
+      </article>
+
+    </section>
+
+    <section class="design-note">
+      <h2>What I Learned</h2>
+      <ul>
+        <li><strong>border-radius:</strong> Creates rounded or asymmetric corners.</li>
+        <li><strong>background:</strong> Supports solid colours and gradients.</li>
+        <li><strong>box-shadow:</strong> Adds depth to a card.</li>
+        <li><strong>Flexbox:</strong> Arranges cards and adapts to screen size.</li>
+        <li><strong>:hover:</strong> Adds interactive visual feedback.</li>
+        <li><strong>Media queries:</strong> Improve the layout on mobile devices.</li>
+      </ul>
+    </section>
+
+    <section class="design-note" id="soft-details">
+      <h2>Soft Card Details</h2>
+      <p>This design is suitable for profiles, product summaries, and simple information panels.</p>
+    </section>
+
+    <section class="design-note" id="gradient-details">
+      <h2>Gradient Card Details</h2>
+      <p>This design works well for featured content and creative portfolio sections.</p>
+    </section>
+
+    <section class="design-note" id="outline-details">
+      <h2>Outline Card Details</h2>
+      <p>This design can be used for technology projects, dashboards, and dark-themed interfaces.</p>
+    </section>
+  </main>
+
+  <footer>
+    <small>&copy; 2026 Abdul Suboor Khan | BCA HTML & CSS Assignment</small>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,395 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Abdul Suboor Khan's styled multi-page BCA student project.">
+  <meta name="author" content="Abdul Suboor Khan">
+  <title>Abdul Suboor Khan | BCA Student Project</title>
+
+  <style>
+    :root {
+      --primary: #1f3a93;
+      --accent: #f4a261;
+      --bg: #f4f6fb;
+      --text: #222;
+      --radius: 10px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 1.2rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.4rem;
+    }
+
+    header p {
+      margin: 0.2rem 0 0;
+      color: #e1e7ff;
+      font-size: 0.9rem;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 0.45rem 0.65rem;
+      border-radius: 5px;
+      transition: background 0.2s;
+    }
+
+    nav a:hover,
+    nav a:focus-visible {
+      background: rgba(255, 255, 255, 0.16);
+      outline: 2px solid var(--accent);
+    }
+
+    main {
+      max-width: 850px;
+      margin: 2rem auto;
+      padding: 0 1.2rem;
+      min-height: 55vh;
+    }
+
+    .page {
+      display: none;
+      background: white;
+      padding: clamp(1.2rem, 4vw, 2rem);
+      border-radius: var(--radius);
+      box-shadow: 0 4px 16px rgba(20, 35, 80, 0.08);
+      animation: appear 0.25s ease-in-out;
+    }
+
+    .page:target,
+    body:not(:has(.page:target)) #home {
+      display: block;
+    }
+
+    h2 {
+      color: var(--primary);
+      margin-top: 0;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #eef1fb;
+    }
+
+    .intro {
+      font-size: 1.05rem;
+    }
+
+    .highlight {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    input,
+    select,
+    textarea {
+      display: block;
+      width: 100%;
+      padding: 0.7rem;
+      margin-top: 0.35rem;
+      border: 1px solid #c6cada;
+      border-radius: 6px;
+      font: inherit;
+      background: white;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: 2px solid var(--primary);
+      outline-offset: 1px;
+    }
+
+    button {
+      background: var(--accent);
+      color: #222;
+      border: 0;
+      padding: 0.75rem 1.4rem;
+      border-radius: var(--radius);
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      transition: filter 0.2s, transform 0.2s;
+    }
+
+    button:hover {
+      filter: brightness(0.94);
+      transform: translateY(-1px);
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    th,
+    td {
+      border: 1px solid #e0e3ec;
+      padding: 0.8rem;
+      text-align: left;
+    }
+
+    th {
+      background: #eef1fb;
+      color: var(--primary);
+      width: 35%;
+    }
+
+    .note {
+      background: #fff8ec;
+      border-left: 5px solid var(--accent);
+      padding: 1rem;
+      margin-top: 1.5rem;
+      border-radius: 6px;
+    }
+
+    .note p {
+      margin: 0.5rem 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      color: #666;
+      border-top: 1px solid #e0e3ec;
+      margin-top: 2rem;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(5px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        gap: 0.25rem;
+      }
+
+      nav a {
+        padding: 0.4rem;
+        font-size: 0.9rem;
+      }
+
+      main {
+        margin: 1rem auto;
+      }
+
+      th,
+      td {
+        padding: 0.6rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div>
+      <h1>Abdul Suboor Khan's Site</h1>
+      <p>First-Year BCA Student | Learning Web Development</p>
+    </div>
+
+    <nav aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#register">Register</a>
+      <a href="#contact">Contact</a>
+      <a href="#design">Design Note</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="page">
+      <h2>Welcome to My Website</h2>
+      <p class="intro">
+        Hello! I am <span class="highlight">Abdul Suboor Khan</span>,
+        a first-year BCA student interested in computers, programming,
+        and web development.
+      </p>
+      <p>
+        This styled multi-page project demonstrates HTML structure,
+        CSS variables, navigation, forms, tables, and responsive design.
+      </p>
+    </section>
+
+    <section id="about" class="page">
+      <h2>About Me</h2>
+      <p>Here is a short introduction to my academic profile.</p>
+
+      <table>
+        <tbody>
+          <tr>
+            <th scope="row">Name</th>
+            <td>Abdul Suboor Khan</td>
+          </tr>
+          <tr>
+            <th scope="row">Course</th>
+            <td>Bachelor of Computer Applications (BCA)</td>
+          </tr>
+          <tr>
+            <th scope="row">Year</th>
+            <td>First Year</td>
+          </tr>
+          <tr>
+            <th scope="row">Interests</th>
+            <td>Programming, Web Development, and Technology</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="register" class="page">
+      <h2>Registration Form</h2>
+      <p>Fill in the fields below to practise HTML form elements.</p>
+
+      <form action="#" method="get">
+        <label for="reg-name">
+          Full Name
+          <input type="text" id="reg-name" name="name"
+            placeholder="Enter your full name" required>
+        </label>
+
+        <label for="reg-email">
+          Email Address
+          <input type="email" id="reg-email" name="email"
+            placeholder="Enter your email" required>
+        </label>
+
+        <label for="course">
+          Select Course
+          <select id="course" name="course" required>
+            <option value="">Choose a course</option>
+            <option value="BCA">BCA</option>
+            <option value="BTech">B.Tech</option>
+            <option value="BBA">BBA</option>
+          </select>
+        </label>
+
+        <button type="submit">Register</button>
+      </form>
+
+      <p><small>
+        Note: This is a demonstration form. It does not save
+        registration details to a database.
+      </small></p>
+    </section>
+
+    <section id="contact" class="page">
+      <h2>Contact Me</h2>
+      <p>Use this sample form to practise text inputs and text areas.</p>
+
+      <form action="#" method="get">
+        <label for="contact-name">
+          Your Name
+          <input type="text" id="contact-name" name="contactName"
+            placeholder="Enter your name" required>
+        </label>
+
+        <label for="message">
+          Your Message
+          <textarea id="message" name="message" rows="5"
+            placeholder="Write your message here..." required></textarea>
+        </label>
+
+        <button type="submit">Send Message</button>
+      </form>
+
+      <p><small>
+        This sample form does not send messages to an inbox.
+      </small></p>
+    </section>
+
+    <section id="design" class="page">
+      <h2>Design Choices</h2>
+
+      <div class="note">
+        <p><strong>Colour:</strong> Deep blue communicates
+          professionalism, while orange highlights important actions.</p>
+
+        <p><strong>Typography:</strong> The system font stack loads
+          quickly, and a line-height of 1.6 improves readability.</p>
+
+        <p><strong>Layout:</strong> The content is limited to 850px
+          on larger screens, with white cards against a light background.</p>
+
+        <p><strong>Responsive Design:</strong> Media queries adjust
+          navigation, spacing, and tables for smaller screens.</p>
+
+        <p><strong>Accessibility:</strong> Form labels, visible focus
+          indicators, semantic table headings, and reduced-motion support
+          improve usability.</p>
+
+        <p><strong>Maintainability:</strong> CSS custom properties
+          keep the main theme colours and border radius in one place.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <small>&copy; 2026 Abdul Suboor Khan | BCA Student Project</small>
+  </footer>
+</body>
+
+</html>

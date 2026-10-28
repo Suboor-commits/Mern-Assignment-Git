@@ -1,0 +1,392 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A responsive CSS overflow demonstration by Abdul Suboor Khan.">
+  <meta name="author" content="Abdul Suboor Khan">
+  <title>Fixing Overflow Problems | Abdul Suboor Khan</title>
+
+  <style>
+    :root {
+      --primary: #1d3557;
+      --accent: #457b9d;
+      --background: #f1f5f9;
+      --text: #263238;
+      --border: #d7e0eb;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: system-ui, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      margin: 0;
+      padding: 1.25rem;
+      line-height: 1.6;
+    }
+
+    .wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 1.75rem;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+    }
+
+    header h1 {
+      margin: 0 0 0.4rem;
+      font-size: clamp(1.6rem, 4vw, 2.3rem);
+    }
+
+    header p {
+      margin: 0.35rem 0;
+      color: #e3edf7;
+    }
+
+    .student-tag {
+      display: inline-block;
+      margin-top: 0.7rem;
+      padding: 0.3rem 0.7rem;
+      background: #ffffff1f;
+      border: 1px solid #ffffff66;
+      border-radius: 999px;
+      font-size: 0.9rem;
+    }
+
+    .column {
+      width: 100%;
+      padding: 1.25rem;
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--accent);
+      border-radius: 10px;
+      margin-bottom: 1.25rem;
+      background: white;
+      box-shadow: 0 3px 12px rgba(29, 53, 87, 0.05);
+      min-width: 0;
+    }
+
+    .column h2 {
+      color: var(--primary);
+      margin-top: 0;
+      font-size: 1.25rem;
+    }
+
+    .fix-label {
+      display: inline-block;
+      background: #e1f5e9;
+      color: #17653a;
+      padding: 0.15rem 0.55rem;
+      border-radius: 5px;
+      font-size: 0.8rem;
+      margin-bottom: 0.6rem;
+      font-weight: 700;
+    }
+
+    /* FIX 1 and 2: Images scale within their containers. */
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+    }
+
+    .image-caption {
+      margin-bottom: 0;
+      color: #5c6675;
+      font-size: 0.9rem;
+    }
+
+    /* FIX 3: Unbroken words and URLs wrap. */
+    .long-text {
+      overflow-wrap: anywhere;
+    }
+
+    .long-text p {
+      background: #f4f7fb;
+      padding: 0.8rem;
+      border-radius: 6px;
+    }
+
+    /* FIX 4: Wide tables scroll inside their own container. */
+    .table-scroll {
+      max-width: 100%;
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 650px;
+      background: white;
+    }
+
+    th,
+    td {
+      border: 1px solid var(--border);
+      padding: 0.7rem;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    th {
+      background: #e7edf6;
+      color: var(--primary);
+    }
+
+    /* FIX 5: Fixed-height content can scroll vertically. */
+    .fixed-box {
+      height: 110px;
+      overflow-y: auto;
+      border: 1px solid #b9c5d3;
+      padding: 0.75rem;
+      background: #f8fafc;
+      border-radius: 6px;
+    }
+
+    /* FIX 6: Long code lines scroll horizontally. */
+    pre {
+      max-width: 100%;
+      overflow-x: auto;
+      background: #172033;
+      color: #e7efff;
+      padding: 1rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      line-height: 1.7;
+      tab-size: 2;
+    }
+
+    pre code {
+      white-space: pre;
+    }
+
+    code {
+      font-family: Consolas, "Courier New", monospace;
+    }
+
+    .explanation {
+      background: #eaf3ff;
+      border-left: 4px solid #457b9d;
+      padding: 0.8rem 1rem;
+      border-radius: 5px;
+      margin-top: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      color: #637083;
+      padding: 1.5rem 0 0.5rem;
+      margin-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 0.75rem;
+      }
+
+      header {
+        padding: 1.2rem;
+      }
+
+      .column {
+        padding: 1rem;
+      }
+
+      th,
+      td {
+        padding: 0.55rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrapper">
+
+    <header>
+      <h1>Fixing CSS Overflow Problems</h1>
+      <p>
+        Learning how to prevent images, text, tables, and code
+        from breaking a webpage layout.
+      </p>
+      <span class="student-tag">
+        Abdul Suboor Khan | First-Year BCA Student
+      </span>
+    </header>
+
+    <section class="column">
+      <span class="fix-label">FIX 1 & 2</span>
+      <h2>1. Responsive Image</h2>
+      <p>
+        The image uses <code>max-width: 100%</code> and
+        <code>height: auto</code> to fit its container without
+        stretching beyond its natural proportions.
+      </p>
+
+      <img
+        src="https://picsum.photos/id/1011/1000/400"
+        alt="A peaceful lake surrounded by mountains">
+
+      <p class="image-caption">
+        The image adjusts to the available width of the card.
+      </p>
+
+      <div class="explanation">
+        <strong>Why it works:</strong>
+        <code>max-width: 100%</code> prevents the image from
+        exceeding its parent container.
+      </div>
+    </section>
+
+    <section class="column long-text">
+      <span class="fix-label">FIX 3</span>
+      <h2>2. Long Unbroken Text</h2>
+      <p>
+        This URL is intentionally long and has no spaces:
+        https://www.example.com/this/is/a/very/long/url/that/would/normally/stretch/the/layout/sideways/forever/and/ever
+      </p>
+
+      <div class="explanation">
+        <strong>Why it works:</strong>
+        <code>overflow-wrap: anywhere</code> lets long URLs and
+        unbroken words wrap when needed.
+      </div>
+    </section>
+
+    <section class="column">
+      <span class="fix-label">FIX 4</span>
+      <h2>3. Wide Table</h2>
+      <p>
+        On small screens, scroll horizontally inside the table
+        container instead of making the whole page wider.
+      </p>
+
+      <div class="table-scroll" tabindex="0"
+        role="region" aria-label="Student details table; scroll horizontally to view all columns">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>City</th>
+              <th>Course</th>
+              <th>Year</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Abdul Suboor Khan</td>
+              <td>student@example.com</td>
+              <td>Meerut</td>
+              <td>BCA</td>
+              <td>First Year</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="image-caption">
+        Note: The email shown is a placeholder example.
+      </p>
+
+      <div class="explanation">
+        <strong>Why it works:</strong>
+        <code>overflow-x: auto</code> makes the table's container
+        scroll when the table is wider than the available space.
+      </div>
+    </section>
+
+    <section class="column">
+      <span class="fix-label">FIX 5</span>
+      <h2>4. Fixed-Height Box</h2>
+      <p>
+        The following box has a fixed height. Scroll inside it
+        to read all the text.
+      </p>
+
+      <div class="fixed-box" tabindex="0"
+        role="region" aria-label="Scrollable sample paragraph">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Sed do eiusmod tempor incididunt ut labore et dolore magna
+        aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+        ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Duis aute irure dolor in reprehenderit in voluptate velit
+        esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia
+        deserunt mollit anim id est laborum.
+      </div>
+
+      <div class="explanation">
+        <strong>Why it works:</strong>
+        <code>overflow-y: auto</code> adds a vertical scrollbar
+        only when the content needs more space than the box provides.
+      </div>
+    </section>
+
+    <section class="column">
+      <span class="fix-label">FIX 6</span>
+      <h2>5. Long Code Block</h2>
+      <p>
+        Code often contains long lines that should remain intact.
+        Horizontal scrolling keeps them from widening the page.
+      </p>
+
+      <pre><code>const message = "This line is intentionally very long so that it would overflow the container if not for overflow-x: auto";</code></pre>
+
+      <div class="explanation">
+        <strong>Why it works:</strong>
+        <code>overflow-x: auto</code> keeps long code lines inside
+        the code block and lets users scroll horizontally.
+      </div>
+    </section>
+
+    <section class="column">
+      <h2>Summary: CSS Overflow Fixes</h2>
+      <ul>
+        <li><code>box-sizing: border-box</code> includes padding and border in declared dimensions.</li>
+        <li><code>max-width: 100%</code> keeps images within their containers.</li>
+        <li><code>overflow-wrap: anywhere</code> wraps long URLs and words.</li>
+        <li><code>overflow-x: auto</code> handles wide tables and code blocks.</li>
+        <li><code>overflow-y: auto</code> makes overflowing fixed-height content scrollable.</li>
+        <li>Responsive widths help prevent horizontal page overflow on mobile devices.</li>
+      </ul>
+    </section>
+
+    <footer>
+      <small>
+        &copy; 2026 Abdul Suboor Khan | BCA HTML & CSS Assignment
+      </small>
+    </footer>
+
+  </main>
+</body>
+
+</html>
