@@ -1,0 +1,86 @@
+# Assignment 4 – Git Repository with at Least Three Meaningful Commits
+
+**Name:** Abdul Suboor Khan  
+**Course:** BCA  
+**Topic:** Git Repository and Version Control
+
+## Objective
+
+The objective of this assignment is to create a Git repository, add project files, and make at least three meaningful commits to maintain a record of project progress.
+
+## 1. Configure Git Identity
+
+Run these commands in the VS Code terminal. Replace the example email with your own email address.
+
+```bash
+git config --global user.name "Abdul Suboor Khan"
+git config --global user.email "your-email@example.com"
+```
+
+## 2. Create a Git Repository
+
+Create a folder and initialize Git:
+
+```bash
+mkdir html-css-assignments
+cd html-css-assignments
+git init
+git branch -M main
+```
+
+## 3. Commit 1 – Add README
+
+Create a README file and commit it:
+
+```bash
+echo "# HTML & CSS Assignments" > README.md
+git add README.md
+git commit -m "docs: add README with project overview"
+```
+
+## 4. Commit 2 – Add Setup and Git Assignments
+
+Copy your assignment files into the repository first. Then add and commit the files.
+
+```bash
+git add 01-*.md 02-*.md 03-*.md 04-*.md 05-*.md
+git commit -m "docs: add setup and Git assignments"
+```
+
+**Note:** Run these commands only after the relevant Markdown files have been copied into the repository. If your files are in a different folder, copy them from that location first.
+
+## 5. Commit 3 – Add HTML Assignments
+
+After adding your HTML assignment files, run:
+
+```bash
+git add 06-*.html 07-*.html 08-*.html 09-*.html 10-*.html
+git commit -m "feat: add HTML basics assignments"
+```
+
+If your actual filenames are different, use `git status` and `git add` with the correct filenames.
+
+## 6. Verify Commit History
+
+Run the following command to display your commit history:
+
+```bash
+git log --oneline
+```
+
+If all three commits were successful, you should see at least three entries in the output.
+
+## 7. Good Commit Message Rules
+
+- Use short, clear messages.
+- Use imperative wording, such as `add navbar`.
+- Add a type prefix, such as `feat:`, `fix:`, `docs:`, or `style:`.
+- Keep each commit focused on one logical change.
+
+## 8. Suggested Commit History for the Course
+
+| Commit | Message |
+|---:|---|
+| 1 | `docs: add README` |
+| 2 | `docs: add setup and Git assignments (1-5)` |
+| 3 | `feat: add HTML basics (6-10)` |

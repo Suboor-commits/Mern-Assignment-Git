@@ -1,0 +1,85 @@
+# Assignment – Basic Terminal Commands
+
+**Name:** Abdul Suboor Khan  
+**Course:** BCA  
+**Topic:** Basic Terminal Commands
+
+## 1. Common Terminal Commands
+
+| No. | Task | macOS / Linux / Git Bash | Windows PowerShell |
+|---:|---|---|---|
+| 1 | Show current folder | `pwd` | `pwd` |
+| 2 | List files | `ls` | `ls` |
+| 3 | List hidden files and details | `ls -la` | `ls -Force` |
+| 4 | Create a folder | `mkdir practice` | `mkdir practice` |
+| 5 | Enter a folder | `cd practice` | `cd practice` |
+| 6 | Create an empty file | `touch index.html` | `ni index.html` |
+| 7 | Create nested folders | `mkdir -p css/images` | `mkdir css/images` |
+| 8 | Go up one level | `cd ..` | `cd ..` |
+| 9 | Go to home directory | `cd ~` | `cd ~` |
+| 10 | Copy a file | `cp index.html backup.html` | `cp index.html backup.html` |
+| 11 | Rename or move a file | `mv backup.html old.html` | `mv backup.html old.html` |
+| 12 | Delete a file | `rm old.html` | `rm old.html` |
+| 13 | Delete a folder | `rm -r css` | `rm -r css` |
+| 14 | Display file contents | `cat index.html` | `cat index.html` |
+| 15 | Clear the screen | `clear` | `cls` |
+| 16 | Open folder in VS Code | `code .` | `code .` |
+
+## 2. Practice Exercise
+
+Complete the following tasks using terminal commands:
+
+1. Create a `website` folder containing `index.html`, `css/style.css`, and an `images` folder.
+2. Enter the `css` folder and return to `website` using `cd ..`.
+3. List all files and folders recursively using `ls -R`.
+4. Rename `index.html` to `home.html`, then rename it back.
+5. Open the project folder in VS Code.
+
+## 3. Answers – Commands Used
+
+The following commands are for Windows PowerShell.
+
+**Step 1: Go to the home directory**
+```powershell
+cd ~
+```
+
+**Step 2: Create the website folders**
+```powershell
+mkdir website
+mkdir website/css
+mkdir website/images
+```
+
+**Step 3: Create the required files**
+```powershell
+New-Item website/index.html -ItemType File
+New-Item website/css/style.css -ItemType File
+```
+
+**Step 4: Enter the CSS folder**
+```powershell
+cd website/css
+```
+
+**Step 5: Return to the website folder**
+```powershell
+cd ..
+```
+
+**Step 6: List all files and folders recursively**
+```powershell
+Get-ChildItem -Recurse
+```
+
+**Step 7: Rename the HTML file**
+```powershell
+Rename-Item index.html home.html
+```
+
+**Step 8: Rename it back**
+```powershell
+Rename-Item home.html index.html
+```
+
+**
